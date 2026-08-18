@@ -4,8 +4,12 @@
    GLOBAL
    ======================================== */
 
-* {
+.login-pf-page,
+.login-pf-page * {
     font-family: 'Inter', sans-serif !important;
+}
+
+.login-pf-page {
     letter-spacing: 0.02em;
 }
 
@@ -21,6 +25,53 @@
 
 .login-pf-page {
     background: none;
+}
+
+/* ========================================
+   CURSOR
+   ======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+    .heimdall-cursor-frame {
+        position: fixed;
+        z-index: 9999;
+
+        width: 80px;
+        height: 80px;
+
+        box-sizing: border-box;
+
+        background: transparent;
+        border: 1px solid #EC7A29;
+
+        pointer-events: none;
+
+        opacity: 0;
+
+        left: 0;
+        top: 0;
+
+        transition: opacity 180ms ease;
+
+        will-change: transform;
+    }
+
+    .heimdall-cursor-frame.is-visible {
+        opacity: 1;
+    }
+
+    .heimdall-cursor-frame.is-pressed {
+        opacity: 0.65;
+    }
+}
+
+/* Acessibilidade: reduz animações para usuários que
+   preferem menos movimento */
+
+@media (prefers-reduced-motion: reduce) {
+    .heimdall-cursor-frame {
+        transition: none;
+    }
 }
 
 /* ========================================
@@ -125,6 +176,7 @@ div.kc-logo-text {
 
 #kc-locale-dropdown ul {
     background: rgba(0, 0, 0, 0.75) !important;
+
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
 
@@ -145,16 +197,19 @@ div.kc-logo-text {
 }
 
 /* Distância entre título e Username */
+
 .login-pf-page .form-group:first-of-type {
     margin-top: 40px;
 }
 
 /* Distância entre Username e Password */
+
 .login-pf-page .form-group + .form-group {
     margin-top: 24px;
 }
 
 /* Link de recuperação de senha */
+
 #kc-form-login .form-group:has(#password) {
     margin-bottom: 0;
 }
@@ -169,13 +224,16 @@ div.kc-logo-text {
 #kc-form-login .form-group:has(#kc-form-options) .kc-form-options,
 #kc-form-login .form-group:has(#kc-form-options) #kc-form-options + div {
     display: inline-block;
+
     width: 100%;
+
     text-align: right;
 }
 
 #kc-form-login .form-group:has(#kc-form-options) a {
     font-size: 12px;
     font-weight: 500;
+
     color: #F8F8F8;
 }
 
@@ -184,6 +242,7 @@ div.kc-logo-text {
 }
 
 /* Label */
+
 .login-pf-page .form-group label {
     display: block;
 
@@ -232,12 +291,14 @@ div.kc-logo-text {
 }
 
 /* Placeholder */
+
 .login-pf-page .pf-c-form-control::placeholder {
     color: #F8F8F8;
     opacity: 0.6;
 }
 
 /* Focus */
+
 .login-pf-page .pf-c-form-control:focus {
     background: transparent;
 
@@ -273,6 +334,7 @@ div.kc-logo-text {
 }
 
 /* Input da senha */
+
 .login-pf-page .pf-c-input-group .pf-c-form-control {
     flex: 1;
 
@@ -299,6 +361,7 @@ div.kc-logo-text {
 }
 
 /* Focus do input de senha */
+
 .login-pf-page .pf-c-input-group .pf-c-form-control:focus {
     background: transparent;
 
@@ -314,6 +377,7 @@ div.kc-logo-text {
 
 .login-pf-page .pf-c-input-group .pf-c-button.pf-m-control {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -343,6 +407,7 @@ div.kc-logo-text {
 }
 
 /* Estados do botão */
+
 .login-pf-page .pf-c-input-group .pf-c-button.pf-m-control:hover,
 .login-pf-page .pf-c-input-group .pf-c-button.pf-m-control:focus,
 .login-pf-page .pf-c-input-group .pf-c-button.pf-m-control:focus-visible,
@@ -366,6 +431,7 @@ div.kc-logo-text {
 }
 
 /* Remove elementos internos */
+
 .login-pf-page .pf-c-input-group .pf-c-button.pf-m-control > * {
     display: none !important;
 }
@@ -505,4 +571,3 @@ div.kc-logo-text {
     font-size: 12px;
     font-weight: 500;
 }
-
