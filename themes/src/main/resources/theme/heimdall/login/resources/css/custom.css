@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ========================================
+   GLOBAL
+   ======================================== */
+
+* {
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: 0.02em;
+}
+
+/* ========================================
+   BACKGROUND
+   ======================================== */
+
+.login-pf body {
+    background: url('../img/background.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+.login-pf-page {
+    background: none;
+}
+
+/* ========================================
+   LOGO
+   ======================================== */
+
+div.kc-logo-text {
+    width: 100%;
+    height: 126px;
+
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* ========================================
+   CARD
+   ======================================== */
+
+.login-pf-page .card-pf {
+    width: 504px;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+
+    box-shadow:
+        -2px 11px 28.3px 11px #00000040,
+        0px 4px 4px 0px #00000040;
+}
+
+/* ========================================
+   TEXTOS
+   ======================================== */
+
+.login-pf-page .card-pf,
+.login-pf-page .card-pf h1,
+.login-pf-page .card-pf label,
+.login-pf-page .card-pf span,
+.login-pf-page .card-pf p,
+.login-pf-page .card-pf a {
+    color: #F8F8F8;
+}
+
+#kc-page-title {
+    width: 288px;
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+}
+
+#kc-info,
+#kc-info-wrapper {
+    background-color: transparent;
+    color: #F8F8F8;
+}
+
+#kc-info-wrapper {
+    font-size: 12px;
+}
+
+/* ========================================
+   SELETOR DE IDIOMA
+   ======================================== */
+
+#kc-locale,
+#kc-locale-wrapper,
+#kc-locale-dropdown,
+#kc-locale-dropdown ul {
+    background: transparent;
+}
+
+#kc-locale-dropdown button,
+#kc-locale-dropdown a {
+    font-size: 12px;
+    color: #F8F8F8 !important;
+}
+
+#kc-locale-dropdown li,
+#kc-locale-dropdown a,
+#kc-locale-dropdown a:hover,
+#kc-locale-dropdown a:focus,
+#kc-locale-dropdown a:active,
+#kc-locale-dropdown button:hover,
+#kc-locale-dropdown button:focus {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #F8F8F8 !important;
+}
+
+#kc-locale-dropdown ul {
+    background: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+}
+
+/* ========================================
+   LABELS
+   ======================================== */
+
+.login-pf-page .form-group {
+    width: 288px;
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Distância entre título e Username */
+.login-pf-page .form-group:first-of-type {
+    margin-top: 40px;
+}
+
+/* Distância entre Username e Password */
+.login-pf-page .form-group + .form-group {
+    margin-top: 24px;
+}
+
+/* Link de recuperação de senha */
+#kc-form-login .form-group:has(#password) {
+    margin-bottom: 0;
+}
+
+#kc-form-login .form-group:has(#kc-form-options) {
+    width: 288px;
+    max-width: 100%;
+
+    margin: 8px auto 0;
+}
+
+#kc-form-login .form-group:has(#kc-form-options) .kc-form-options,
+#kc-form-login .form-group:has(#kc-form-options) #kc-form-options + div {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+}
+
+#kc-form-login .form-group:has(#kc-form-options) a {
+    font-size: 12px;
+    font-weight: 500;
+    color: #F8F8F8;
+}
+
+#kc-form-login #kc-form-buttons {
+    margin-top: 40px;
+}
+
+/* Label */
+.login-pf-page .form-group label {
+    display: block;
+
+    width: 288px;
+    max-width: 100%;
+
+    margin: 0 0 8px;
+    padding: 0;
+
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #F8F8F8;
+}
+
+/* ========================================
+   INPUTS
+   ======================================== */
+
+.login-pf-page .pf-c-form-control {
+    display: block;
+
+    width: 288px;
+    max-width: 100%;
+    height: 40px;
+
+    margin: 0 auto;
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    background: transparent;
+
+    border: 1px solid #F8F8F8;
+    border-radius: 40px;
+
+    font-size: 12px;
+    font-weight: 500;
+    color: #F8F8F8;
+
+    outline: none;
+    box-shadow: none;
+}
+
+/* Placeholder */
+.login-pf-page .pf-c-form-control::placeholder {
+    color: #F8F8F8;
+    opacity: 0.6;
+}
+
+/* Focus */
+.login-pf-page .pf-c-form-control:focus {
+    background: transparent;
+
+    border: 1px solid #F8F8F8;
+
+    color: #F8F8F8;
+
+    outline: none;
+    box-shadow: none;
+}
+
+/* ========================================
+   CAMPO DE SENHA
+   ======================================== */
+
+.login-pf-page .pf-c-input-group {
+    display: flex;
+
+    width: 288px;
+    max-width: 100%;
+    height: 40px;
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+
+    background: transparent;
+
+    border: 1px solid #F8F8F8;
+    border-radius: 40px;
+
+    overflow: hidden;
+}
+
+/* Input da senha */
+.login-pf-page .pf-c-input-group .pf-c-form-control {
+    flex: 1;
+
+    width: auto;
+    max-width: none;
+    height: 38px;
+
+    margin: 0;
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    background: transparent;
+
+    border: none !important;
+    border-radius: 40px 0 0 40px;
+
+    font-size: 12px;
+    font-weight: 500;
+    color: #F8F8F8;
+
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Focus do input de senha */
+.login-pf-page .pf-c-input-group .pf-c-form-control:focus {
+    background: transparent;
+
+    border: none !important;
+
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ========================================
+   BOTÃO DO OLHO
+   ======================================== */
+
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    width: 48px;
+    min-width: 48px;
+    height: 38px;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background: transparent !important;
+
+    border: none !important;
+    border-radius: 0 40px 40px 0;
+
+    color: #F8F8F8 !important;
+
+    outline: none !important;
+    box-shadow: none !important;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Estados do botão */
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control:hover,
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control:focus,
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control:focus-visible,
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control:active {
+    background: transparent !important;
+
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    color: #F8F8F8 !important;
+}
+
+/* ========================================
+   REMOVE ÍCONE ORIGINAL DO KEYCLOAK
+   ======================================== */
+
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control svg {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Remove elementos internos */
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control > * {
+    display: none !important;
+}
+
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control *,
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control::after {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ========================================
+   NOSSO ÍCONE
+   ======================================== */
+
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control::before {
+    content: "";
+
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    background-color: #F8F8F8;
+
+    -webkit-mask-image: url('../img/eye.png');
+    mask-image: url('../img/eye.png');
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+/* ========================================
+   EYE-OFF
+   ======================================== */
+
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control[aria-label*="Hide"]::before,
+.login-pf-page .pf-c-input-group .pf-c-button.pf-m-control[title*="Hide"]::before {
+    background-color: #F8F8F8;
+
+    -webkit-mask-image: url('../img/eye-off.png');
+    mask-image: url('../img/eye-off.png');
+}
+
+.login-pf-page .pf-c-input-group:has(.pf-c-form-control[type="text"]) .pf-c-button.pf-m-control::before {
+    background-color: #F8F8F8;
+
+    -webkit-mask-image: url('../img/eye-off.png');
+    mask-image: url('../img/eye-off.png');
+}
+
+/* ========================================
+   BOTÃO DE LOGIN
+   ======================================== */
+
+#kc-login {
+    display: block;
+
+    width: 208px;
+    height: 56px;
+
+    margin: 0 auto;
+
+    background-color: #EC7A29;
+
+    border: none;
+    border-radius: 40px;
+
+    font-size: 18px;
+    color: #F8F8F8;
+
+    transition: background-color 0.3s ease;
+}
+
+#kc-login:hover,
+#kc-login:focus {
+    background-color: #B85A17;
+    color: #F8F8F8;
+}
+
+/* ========================================
+   RECUPERAÇÃO DE SENHA
+   ======================================== */
+
+#kc-reset-password-form .form-group:first-child {
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+#kc-reset-password-form .form-group:last-child {
+    margin-top: 8px;
+}
+
+#kc-reset-password-form #kc-form-buttons {
+    margin-top: 40px;
+}
+
+#kc-reset-password-form input[type="submit"] {
+    display: block;
+
+    width: 208px;
+    height: 56px;
+
+    margin: 0 auto;
+
+    background-color: #EC7A29;
+
+    border: none;
+    border-radius: 40px;
+
+    font-size: 18px;
+    color: #F8F8F8;
+
+    transition: background-color 0.3s ease;
+}
+
+#kc-reset-password-form input[type="submit"]:hover,
+#kc-reset-password-form input[type="submit"]:focus {
+    background-color: #B85A17;
+    color: #F8F8F8;
+}
+
+#kc-reset-password-form #kc-form-options {
+    width: 288px;
+    max-width: 100%;
+
+    margin: 0 auto;
+}
+
+#kc-reset-password-form #kc-form-options a {
+    font-size: 12px;
+    font-weight: 500;
+}
+
