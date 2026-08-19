@@ -73,6 +73,8 @@
         top: 0;
         right: 0;
 
+        box-sizing: border-box;
+        max-width: calc(100% - 8px);
         padding: 4px 8px;
 
         background: #EC7A29;
@@ -81,6 +83,8 @@
         font-size: 12px;
         line-height: 1.2;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         color: #F8F8F8;
     }
