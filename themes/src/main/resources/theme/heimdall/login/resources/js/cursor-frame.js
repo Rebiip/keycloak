@@ -5,6 +5,19 @@
         cursorFrame.className = 'heimdall-cursor-frame';
         cursorFrame.setAttribute('aria-hidden', 'true');
 
+        const cursorLabelMeta = document.querySelector(
+            'meta[name="heimdall-cursor-label"]'
+        );
+
+        const cursorLabel = document.createElement('span');
+
+        cursorLabel.className = 'heimdall-cursor-frame-label';
+        cursorLabel.textContent = cursorLabelMeta
+            ? cursorLabelMeta.content
+            : 'User';
+
+        cursorFrame.appendChild(cursorLabel);
+
         document.documentElement.appendChild(cursorFrame);
 
         let animationFrame = null;

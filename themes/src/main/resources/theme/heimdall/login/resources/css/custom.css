@@ -63,6 +63,23 @@
     .heimdall-cursor-frame.is-pressed {
         opacity: 0.65;
     }
+
+    .heimdall-cursor-frame-label {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        padding: 4px 8px;
+
+        background: #EC7A29;
+
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        line-height: 1.2;
+        white-space: nowrap;
+
+        color: #F8F8F8;
+    }
 }
 
 /* Acessibilidade: reduz animações para usuários que
