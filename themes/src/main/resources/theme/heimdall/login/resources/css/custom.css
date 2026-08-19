@@ -174,7 +174,10 @@
     transform: rotate(var(--camera-head-tilt));
     transform-origin: var(--camera-head-origin-x) var(--camera-head-origin-y);
 
-    transition: transform 120ms ease-out;
+    transition:
+        top 280ms ease-out,
+        left 280ms ease-out,
+        transform 280ms ease-out;
 }
 
 .login-pf-page:has(#password:focus)::after {
