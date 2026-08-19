@@ -177,9 +177,12 @@
     transition: transform 120ms ease-out;
 }
 
-/* .login-pf-page:has(#password:focus)::after {
+.login-pf-page:has(#password:focus)::after {
+    top: calc(var(--camera-head-top) - 24px);
+    left: calc(var(--camera-head-left) - 8px);
     background-image: url('../img/camera-off.png');
-} */
+    transform: rotate(75deg);
+}
 
 @media (max-width: 767px) {
     .login-pf-page::before,

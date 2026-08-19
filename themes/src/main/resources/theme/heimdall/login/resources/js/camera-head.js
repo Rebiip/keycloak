@@ -1,5 +1,6 @@
 (() => {
-    const TILT_LIMIT_DEG = 25;
+    const TILT_LIMIT_UP_DEG = 25;
+    const TILT_LIMIT_DOWN_DEG = 45;
     const HEAD_WIDTH = 312;
     const HEAD_HEIGHT = 260;
 
@@ -47,8 +48,8 @@
             ) * 180 / Math.PI;
 
             const tilt = Math.max(
-                -TILT_LIMIT_DEG,
-                Math.min(TILT_LIMIT_DEG, angle)
+                -TILT_LIMIT_UP_DEG,
+                Math.min(TILT_LIMIT_DOWN_DEG, angle)
             );
 
             page.style.setProperty(
