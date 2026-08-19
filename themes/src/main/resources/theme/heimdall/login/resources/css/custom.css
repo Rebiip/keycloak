@@ -36,8 +36,8 @@
         position: fixed;
         z-index: 9999;
 
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
 
         box-sizing: border-box;
 
@@ -64,6 +64,10 @@
         opacity: 0.65;
     }
 
+    .heimdall-cursor-frame.has-username {
+        border-color: #24B26E;
+    }
+
     .heimdall-cursor-frame-label {
         position: absolute;
         top: 0;
@@ -79,6 +83,10 @@
         white-space: nowrap;
 
         color: #F8F8F8;
+    }
+
+    .heimdall-cursor-frame.has-username .heimdall-cursor-frame-label {
+        background: #24B26E;
     }
 }
 

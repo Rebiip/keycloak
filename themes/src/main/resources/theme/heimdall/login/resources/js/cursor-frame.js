@@ -10,11 +10,13 @@
         );
 
         const cursorLabel = document.createElement('span');
-
-        cursorLabel.className = 'heimdall-cursor-frame-label';
-        cursorLabel.textContent = cursorLabelMeta
+        const usernameInput = document.querySelector('#username');
+        const defaultCursorLabel = cursorLabelMeta
             ? cursorLabelMeta.content
             : 'User';
+
+        cursorLabel.className = 'heimdall-cursor-frame-label';
+        cursorLabel.textContent = defaultCursorLabel;
 
         cursorFrame.appendChild(cursorLabel);
 
@@ -28,7 +30,7 @@
             animationFrame = null;
 
             cursorFrame.style.transform =
-                `translate3d(${pointerX - 36}px, ${pointerY - 32}px, 0)`;
+                `translate3d(${pointerX - 60}px, ${pointerY - 52}px, 0)`;
         };
 
         const moveCursorFrame = (event) => {
@@ -57,6 +59,16 @@
             cursorFrame.classList.remove('is-pressed');
         };
 
+        const updateCursorLabel = () => {
+            const username = usernameInput.value.trim();
+            const hasUsername = username.length > 0;
+
+            cursorLabel.textContent = hasUsername
+                ? username
+                : defaultCursorLabel;
+            cursorFrame.classList.toggle('has-username', hasUsername);
+        };
+
         document.addEventListener(
             'pointermove',
             moveCursorFrame
@@ -76,6 +88,18 @@
             'pointercancel',
             releaseCursorFrame
         );
+
+        if (usernameInput) {
+            usernameInput.addEventListener(
+                'focus',
+                updateCursorLabel
+            );
+
+            usernameInput.addEventListener(
+                'input',
+                updateCursorLabel
+            );
+        }
 
         document.addEventListener(
             'pointerleave',
