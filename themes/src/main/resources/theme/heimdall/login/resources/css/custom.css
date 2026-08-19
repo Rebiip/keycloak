@@ -177,6 +177,10 @@
     transition: transform 120ms ease-out;
 }
 
+/* .login-pf-page:has(#password:focus)::after {
+    background-image: url('../img/camera-off.png');
+} */
+
 @media (max-width: 767px) {
     .login-pf-page::before,
     .login-pf-page::after {
