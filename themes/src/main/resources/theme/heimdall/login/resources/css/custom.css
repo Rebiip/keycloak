@@ -107,6 +107,14 @@
    CÂMERA
    ======================================== */
 
+.login-pf-page {
+    --camera-head-left: -4px;
+    --camera-head-top: 32px;
+    --camera-head-origin-x: 35%;
+    --camera-head-origin-y: 75%;
+    --camera-head-tilt: 0deg;
+}
+
 .login-pf-page::before,
 .login-pf-page::after {
     content: "";
@@ -130,13 +138,18 @@
 }
 
 .login-pf-page::after {
-    left: -4px;
-    top: 24px;
+    left: var(--camera-head-left);
+    top: var(--camera-head-top);
 
     width: 312px;
     height: 260px;
 
     background-image: url('../img/camera-head.png');
+
+    transform: rotate(var(--camera-head-tilt));
+    transform-origin: var(--camera-head-origin-x) var(--camera-head-origin-y);
+
+    transition: transform 120ms ease-out;
 }
 
 @media (max-width: 767px) {
