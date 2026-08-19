@@ -79,7 +79,7 @@
    ======================================== */
 
 .login-pf-page {
-    --heimdall-edge-gap: 380px;
+    --heimdall-edge-gap: 504px;
 
     display: grid;
     grid-template-columns: 1fr auto;
@@ -88,16 +88,61 @@
 
     align-content: center;
 
+    position: relative;
+
     min-height: 100vh;
 
     box-sizing: border-box;
 
-    padding: 0 var(--heimdall-edge-gap) 0 0
+    padding: 0 var(--heimdall-edge-gap) 0 0;
 }
 
 @media (max-width: 767px) {
     .login-pf-page {
         --heimdall-edge-gap: 16px;
+    }
+}
+
+/* ========================================
+   CÂMERA
+   ======================================== */
+
+.login-pf-page::before,
+.login-pf-page::after {
+    content: "";
+
+    position: absolute;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    pointer-events: none;
+}
+
+.login-pf-page::before {
+    left: 0;
+    top: 200px;
+
+    width: 139px;
+    height: 86px;
+
+    background-image: url('../img/camera-body.png');
+}
+
+.login-pf-page::after {
+    left: -4px;
+    top: 24px;
+
+    width: 312px;
+    height: 260px;
+
+    background-image: url('../img/camera-head.png');
+}
+
+@media (max-width: 767px) {
+    .login-pf-page::before,
+    .login-pf-page::after {
+        display: none;
     }
 }
 
@@ -135,12 +180,12 @@ div.kc-logo-text {
     grid-column: 2;
     grid-row: 2;
 
-    width: fit-content;
+    width: 504px;
     max-width: 100%;
 
     margin: 0;
 
-    padding: 80px;
+    padding: 40px;
 
     box-sizing: border-box;
 
@@ -178,6 +223,10 @@ div.kc-logo-text {
     margin-right: auto;
 
     text-align: center;
+}
+
+#kc-info {
+    margin: 20px 0 0;
 }
 
 #kc-info,
