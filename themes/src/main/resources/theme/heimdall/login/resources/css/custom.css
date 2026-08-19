@@ -75,25 +75,72 @@
 }
 
 /* ========================================
+   LAYOUT — COLUNA À DIREITA, CENTRALIZADA VERTICALMENTE
+   ======================================== */
+
+.login-pf-page {
+    --heimdall-edge-gap: 380px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    row-gap: 10px;
+
+    align-content: center;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding: 0 var(--heimdall-edge-gap) 0 0
+}
+
+@media (max-width: 767px) {
+    .login-pf-page {
+        --heimdall-edge-gap: 16px;
+    }
+}
+
+/* ========================================
    LOGO
    ======================================== */
 
+.login-pf-page > #kc-header {
+    grid-column: 2;
+    grid-row: 1;
+
+    margin: 0;
+}
+
+#kc-header-wrapper {
+    padding: 0;
+}
+
 div.kc-logo-text {
-    width: 100%;
-    height: 126px;
+    box-sizing: border-box;
+
+    padding: 63px 0;
 
     background-image: url('../img/logo.png');
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
+    background-position: center top;
 }
 
 /* ========================================
    CARD
    ======================================== */
 
-.login-pf-page .card-pf {
-    padding: 40px;
+.login-pf-page > .card-pf {
+    grid-column: 2;
+    grid-row: 2;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 0;
+
+    padding: 80px;
 
     box-sizing: border-box;
 
