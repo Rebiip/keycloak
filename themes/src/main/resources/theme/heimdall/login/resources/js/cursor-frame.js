@@ -48,15 +48,6 @@
 
         const hideCursorFrame = () => {
             cursorFrame.classList.remove('is-visible');
-            cursorFrame.classList.remove('is-pressed');
-        };
-
-        const pressCursorFrame = () => {
-            cursorFrame.classList.add('is-pressed');
-        };
-
-        const releaseCursorFrame = () => {
-            cursorFrame.classList.remove('is-pressed');
         };
 
         const updateCursorLabel = () => {
@@ -72,21 +63,6 @@
         document.addEventListener(
             'pointermove',
             moveCursorFrame
-        );
-
-        document.addEventListener(
-            'pointerdown',
-            pressCursorFrame
-        );
-
-        document.addEventListener(
-            'pointerup',
-            releaseCursorFrame
-        );
-
-        document.addEventListener(
-            'pointercancel',
-            releaseCursorFrame
         );
 
         if (usernameInput) {
