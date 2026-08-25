@@ -243,8 +243,8 @@ div.kc-logo-text {
 
     background: rgba(0, 0, 0, 0.25);
 
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 
     border: none;
     border-radius: 16px;
@@ -395,13 +395,13 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
     margin: 8px auto 0;
 }
 
-#kc-form-login .form-group:has(#kc-form-options) .kc-form-options,
 #kc-form-login .form-group:has(#kc-form-options) #kc-form-options + div {
-    display: inline-block;
+    display: flex;
+
+    justify-content: flex-end;
 
     width: 100%;
-
-    text-align: right;
+    margin-top: 32px;
 }
 
 #kc-form-login .form-group:has(#kc-form-options) a {
@@ -413,7 +413,7 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
 }
 
 #kc-form-login #kc-form-buttons {
-    margin-top: 40px;
+    margin-top: 32px;
 }
 
 /* Label */
@@ -670,6 +670,11 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
 
 .login-pf-page .checkbox {
     display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 8px;
+    margin-bottom: 0;
 }
 
 .login-pf-page .checkbox label {
@@ -684,6 +689,7 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
     font-size: 12px;
     font-weight: 500;
     line-height: 1.2;
+    
 
     color: #F8F8F8;
 
@@ -708,7 +714,7 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
     background: transparent;
 
     border: 1px solid #F8F8F8;
-    border-radius: 4px;
+    border-radius: 2px;
 
     outline: none;
     box-shadow: none;
@@ -763,11 +769,11 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
 }
 
 #kc-reset-password-form .form-group:last-child {
-    margin-top: 8px;
+    margin-top: 32px;
 }
 
 #kc-reset-password-form #kc-form-buttons {
-    margin-top: 40px;
+    margin-top: 32px;
 }
 
 #kc-reset-password-form input[type="submit"] {
