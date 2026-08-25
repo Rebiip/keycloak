@@ -51,11 +51,11 @@
         };
 
         const updateCursorLabel = () => {
-            const username = usernameInput.value.trim();
-            const hasUsername = username.length > 0;
+            const displayName = usernameInput.value.trim().split('@')[0];
+            const hasUsername = displayName.length > 0;
 
             cursorLabel.textContent = hasUsername
-                ? username
+                ? displayName
                 : defaultCursorLabel;
             cursorFrame.classList.toggle('has-username', hasUsername);
         };
