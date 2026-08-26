@@ -104,18 +104,17 @@
 }
 
 /* ========================================
-   LAYOUT — COLUNA À DIREITA, CENTRALIZADA VERTICALMENTE
+   LAYOUT — CARD CENTRALIZADO HORIZONTALMENTE
    ======================================== */
 
 .login-pf-page {
-    --heimdall-edge-gap: 504px;
-
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto;
     grid-template-rows: auto auto;
     row-gap: 24px;
 
     align-content: center;
+    justify-content: center;
 
     position: relative;
 
@@ -123,13 +122,7 @@
 
     box-sizing: border-box;
 
-    padding: 0 var(--heimdall-edge-gap) 0 0;
-}
-
-@media (max-width: 767px) {
-    .login-pf-page {
-        --heimdall-edge-gap: 16px;
-    }
+    padding: 0 16px;
 }
 
 /* ========================================
@@ -203,7 +196,7 @@
    ======================================== */
 
 .login-pf-page > #kc-header {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1;
 
     margin: 0;
@@ -229,7 +222,7 @@ div.kc-logo-text {
    ======================================== */
 
 .login-pf-page > .card-pf {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 2;
 
     width: 504px;
