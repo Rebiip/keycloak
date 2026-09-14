@@ -60,6 +60,11 @@
         opacity: 1;
     }
 
+    :root:has(#password:focus) .heimdall-cursor-frame,
+    :root:has(input[type="password"]:focus) .heimdall-cursor-frame {
+        opacity: 0 !important;
+    }
+
     .heimdall-cursor-frame.has-username {
         border-color: #24B26E;
     }
