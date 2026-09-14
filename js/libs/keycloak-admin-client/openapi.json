@@ -9,18 +9,18 @@
           "method" : {
             "type" : "string",
             "pattern" : "\\S",
-            "description" : "Client authentication method (e.g. `client-secret`, `client-secret-jwt`). Validation: must not be blank; valid client authenticator type is required"
+            "description" : "Client authentication method (e.g. `client-secret`, `client-secret-jwt`). Validation: não deve estar em branco; valid client authenticator type is required"
           },
           "secret" : {
             "type" : "string",
             "minLength" : 6,
             "maxLength" : 255,
-            "description" : "Secret used to authenticate this client with Secret authentication. Validation: size must be between 6 and 255; on update: Client secret must not be blank"
+            "description" : "Secret used to authenticate this client with Secret authentication. Validation: tamanho deve ser entre 6 e 255; on update: Client secret must not be blank"
           },
           "certificate" : {
             "type" : "string",
             "maxLength" : 65536,
-            "description" : "Public key used to authenticate this client with Signed JWT authentication. Validation: size must be between 0 and 65536"
+            "description" : "Public key used to authenticate this client with Signed JWT authentication. Validation: tamanho deve ser entre 0 e 65536"
           }
         }
       },
@@ -38,17 +38,17 @@
             "pattern" : "\\S",
             "minLength" : 1,
             "maxLength" : 255,
-            "description" : "ID uniquely identifying this client. Validation: must not be blank; size must be between 1 and 255"
+            "description" : "ID uniquely identifying this client. Validation: não deve estar em branco; tamanho deve ser entre 1 e 255"
           },
           "displayName" : {
             "type" : "string",
             "maxLength" : 255,
-            "description" : "Human readable name of the client. Validation: size must be between 0 and 255"
+            "description" : "Human readable name of the client. Validation: tamanho deve ser entre 0 e 255"
           },
           "description" : {
             "type" : "string",
             "maxLength" : 255,
-            "description" : "Human readable description of the client. Validation: size must be between 0 and 255"
+            "description" : "Human readable description of the client. Validation: tamanho deve ser entre 0 e 255"
           },
           "enabled" : {
             "type" : "boolean",
@@ -57,7 +57,7 @@
           "appUrl" : {
             "type" : "string",
             "maxLength" : 255,
-            "description" : "URL to the application's homepage that is represented by this client. Validation: size must be between 0 and 255; must be a valid URL",
+            "description" : "URL to the application's homepage that is represented by this client. Validation: tamanho deve ser entre 0 e 255; deve ser uma URL válida",
             "format" : "uri"
           },
           "redirectUris" : {
@@ -69,7 +69,7 @@
               "maxLength" : 255
             },
             "maxItems" : 100,
-            "description" : "URIs that the browser can redirect to after login. Validation: size must be between 0 and 100; each element must not be blank, size must be between 0 and 255; Invalid redirect URI"
+            "description" : "URIs that the browser can redirect to after login. Validation: tamanho deve ser entre 0 e 100; each element não deve estar em branco, tamanho deve ser entre 0 e 255; Invalid redirect URI"
           },
           "roles" : {
             "type" : "array",
@@ -80,7 +80,7 @@
               "maxLength" : 255
             },
             "maxItems" : 300,
-            "description" : "Roles associated with this client. Validation: size must be between 0 and 300; each element must not be blank, size must be between 0 and 255"
+            "description" : "Roles associated with this client. Validation: tamanho deve ser entre 0 e 300; each element não deve estar em branco, tamanho deve ser entre 0 e 255"
           },
           "protocol" : {
             "type" : "string",
@@ -140,7 +140,7 @@
               "maxLength" : 255
             },
             "maxItems" : 100,
-            "description" : "Web origins that are allowed to make requests to this client. Validation: size must be between 0 and 100; each element must not be blank, size must be between 0 and 255, must be a valid web origin (scheme://host[:port]), or '+' to derive from redirect URIs, or '*' to allow all"
+            "description" : "Web origins that are allowed to make requests to this client. Validation: tamanho deve ser entre 0 e 100; each element não deve estar em branco, tamanho deve ser entre 0 e 255, must be a valid web origin (scheme://host[:port]), or '+' to derive from redirect URIs, or '*' to allow all"
           },
           "serviceAccountRoles" : {
             "type" : "array",
@@ -151,7 +151,7 @@
               "maxLength" : 255
             },
             "maxItems" : 300,
-            "description" : "Roles assigned to the service account. Validation: size must be between 0 and 300; each element must not be blank, size must be between 0 and 255; serviceAccountRoles can only be set when SERVICE_ACCOUNT flow is enabled"
+            "description" : "Roles assigned to the service account. Validation: tamanho deve ser entre 0 e 300; each element não deve estar em branco, tamanho deve ser entre 0 e 255; serviceAccountRoles can only be set when SERVICE_ACCOUNT flow is enabled"
           },
           "protocol" : {
             "type" : "string"
@@ -208,7 +208,7 @@
           "signingCertificate" : {
             "type" : "string",
             "maxLength" : 65536,
-            "description" : "X.509 certificate for signing (PEM format, without headers). Validation: size must be between 0 and 65536"
+            "description" : "X.509 certificate for signing (PEM format, without headers). Validation: tamanho deve ser entre 0 e 65536"
           },
           "allowEcpFlow" : {
             "type" : "boolean",
