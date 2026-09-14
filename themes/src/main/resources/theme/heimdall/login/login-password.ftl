@@ -12,7 +12,7 @@
 
                         <div class="${properties.kcInputGroup!}" dir="ltr">
                             <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password"
-                                   type="password" placeholder="${msg("passwordPlaceholder")}" autocomplete="current-password" autofocus
+                                   type="password" placeholder="${msg("passwordPlaceholder")}" autocomplete="current-password"
                                    aria-invalid="<#if messagesPerField.existsError('password')>true</#if>"
                             />
                             <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg('showPassword')}"
