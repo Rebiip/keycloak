@@ -8,6 +8,12 @@
         const cursorLabelMeta = document.querySelector(
             'meta[name="heimdall-cursor-label"]'
         );
+        const attemptedUsernameMeta = document.querySelector(
+            'meta[name="heimdall-attempted-username"]'
+        );
+        const attemptedUsername = attemptedUsernameMeta
+            ? attemptedUsernameMeta.content.trim()
+            : '';
 
         const cursorLabel = document.createElement('span');
         const usernameInput = document.querySelector('#username');
@@ -51,7 +57,8 @@
         };
 
         const updateCursorLabel = () => {
-            const displayName = usernameInput.value.trim().split('@')[0];
+            const rawUsername = (usernameInput ? usernameInput.value : '') || attemptedUsername;
+            const displayName = rawUsername.trim().split('@')[0];
             const hasUsername = displayName.length > 0;
 
             cursorLabel.textContent = hasUsername
@@ -59,6 +66,8 @@
                 : defaultCursorLabel;
             cursorFrame.classList.toggle('has-username', hasUsername);
         };
+
+        updateCursorLabel();
 
         document.addEventListener(
             'pointermove',

@@ -60,7 +60,7 @@
         opacity: 1;
     }
 
-    :root:has(#password:focus) .heimdall-cursor-frame {
+      :root:has(#password:focus) .heimdall-cursor-frame {
         opacity: 0 !important;
     }
 
@@ -230,7 +230,7 @@ div.kc-logo-text {
 
     margin: 0;
 
-    padding: 80px 24px;
+    padding: 72px 24px;
 
     box-sizing: border-box;
 
@@ -288,8 +288,64 @@ div.kc-logo-text {
 }
 
 /* ========================================
+   BARRA SUPERIOR DO CABEÇALHO (VOLTAR & IDIOMA)
+   ======================================== */
+
+.kc-form-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.kc-header-spacer {
+    display: block;
+    visibility: hidden;
+}
+
+#reset-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#reset-login:hover {
+    text-decoration: none;
+}
+
+#reset-login:hover .kc-reset-login-text {
+    text-decoration: underline;
+}
+
+.kc-back-button-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.kc-reset-login-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    color: #F8F8F8 !important;
+}
+
+/* ========================================
    SELETOR DE IDIOMA
    ======================================== */
+
+#kc-locale {
+    margin-left: auto !important;
+    text-align: right !important;
+}
 
 #kc-locale,
 #kc-locale-wrapper,
@@ -300,9 +356,11 @@ div.kc-logo-text {
 
 #kc-locale-dropdown button,
 #kc-locale-dropdown a {
-    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.2;
+    letter-spacing: 0.03em;
 
     color: #F8F8F8 !important;
 }
