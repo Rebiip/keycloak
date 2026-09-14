@@ -60,12 +60,15 @@
         opacity: 1;
     }
 
-      :root:has(#password:focus) .heimdall-cursor-frame {
-        opacity: 0 !important;
-    }
-
     .heimdall-cursor-frame.has-username {
         border-color: #24B26E;
+    }
+
+    .heimdall-cursor-frame.has-error,
+    :root:has(#input-error) .heimdall-cursor-frame,
+    :root:has(#input-error-username) .heimdall-cursor-frame,
+    :root:has([aria-invalid="true"]) .heimdall-cursor-frame {
+        border-color: #FF0000 !important;
     }
 
     .heimdall-cursor-frame-label {
@@ -91,6 +94,13 @@
 
     .heimdall-cursor-frame.has-username .heimdall-cursor-frame-label {
         background: #24B26E;
+    }
+
+    .heimdall-cursor-frame.has-error .heimdall-cursor-frame-label,
+    :root:has(#input-error) .heimdall-cursor-frame .heimdall-cursor-frame-label,
+    :root:has(#input-error-username) .heimdall-cursor-frame .heimdall-cursor-frame-label,
+    :root:has([aria-invalid="true"]) .heimdall-cursor-frame .heimdall-cursor-frame-label {
+        background: #FF0000 !important;
     }
 }
 
@@ -534,6 +544,42 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
 
     outline: none;
     box-shadow: none;
+}
+
+/* ========================================
+   MENSAGENS DE ERRO
+   ======================================== */
+
+#input-error,
+#input-error-username,
+#input-error-password,
+.pf-c-form__helper-text.pf-m-error,
+.kc-feedback-text,
+.pf-m-danger,
+.alert-error {
+    color: #FF0000 !important;
+}
+
+#input-error,
+#input-error-username,
+#input-error-password,
+.pf-c-form__helper-text.pf-m-error {
+    display: block;
+    width: 288px;
+    max-width: 100%;
+    margin: 8px auto 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.login-pf-page .pf-c-form-control[aria-invalid="true"],
+.login-pf-page .pf-c-form-control[aria-invalid="true"]:focus {
+    border: 1px solid #F8F8F8 !important;
+    border-color: #F8F8F8 !important;
+    color: #F8F8F8 !important;
 }
 
 /* ========================================

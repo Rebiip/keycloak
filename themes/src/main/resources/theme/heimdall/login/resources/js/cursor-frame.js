@@ -56,7 +56,18 @@
             cursorFrame.classList.remove('is-visible');
         };
 
+        const checkError = () => {
+            return Boolean(
+                document.querySelector('#input-error') ||
+                document.querySelector('#input-error-username') ||
+                document.querySelector('[aria-invalid="true"]') ||
+                document.querySelector('.alert-error') ||
+                document.querySelector('.pf-m-danger')
+            );
+        };
+
         const updateCursorLabel = () => {
+            const isError = checkError();
             const rawUsername = (usernameInput ? usernameInput.value : '') || attemptedUsername;
             const displayName = rawUsername.trim().split('@')[0];
             const hasUsername = displayName.length > 0;
@@ -64,7 +75,14 @@
             cursorLabel.textContent = hasUsername
                 ? displayName
                 : defaultCursorLabel;
-            cursorFrame.classList.toggle('has-username', hasUsername);
+
+            if (isError) {
+                cursorFrame.classList.add('has-error');
+                cursorFrame.classList.remove('has-username');
+            } else {
+                cursorFrame.classList.remove('has-error');
+                cursorFrame.classList.toggle('has-username', hasUsername);
+            }
         };
 
         updateCursorLabel();
