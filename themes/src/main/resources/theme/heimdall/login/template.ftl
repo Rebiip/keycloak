@@ -14,6 +14,9 @@
         </#list>
     </#if>
     <meta name="heimdall-cursor-label" content="${msg('cursorFrameLabel')}" />
+    <#if auth?has_content && auth.showUsername() && !auth.showResetCredentials()>
+        <meta name="heimdall-attempted-username" content="${auth.attemptedUsername}" />
+    </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
     <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
     <#if properties.stylesCommon?has_content>
@@ -97,24 +100,34 @@
     </div>
     <div class="${properties.kcFormCardClass!}">
         <header class="${properties.kcFormHeaderClass!}">
-            <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
-                    <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
-                        <div id="kc-locale-dropdown" class="menu-button-links ${properties.kcLocaleDropDownClass!}">
-                            <button tabindex="1" id="kc-current-locale-link" aria-label="${msg("languages")}" aria-haspopup="true" aria-expanded="false" aria-controls="language-switch1">${locale.current}</button>
-                            <ul role="menu" tabindex="-1" aria-labelledby="kc-current-locale-link" aria-activedescendant="" id="language-switch1" class="${properties.kcLocaleListClass!}">
-                                <#assign i = 1>
-                                <#list locale.supported as l>
-                                    <li class="${properties.kcLocaleListItemClass!}" role="none">
-                                        <a role="menuitem" id="language-${i}" class="${properties.kcLocaleItemClass!}" href="${l.url}">${l.label}</a>
-                                    </li>
-                                    <#assign i++>
-                                </#list>
-                            </ul>
+            <div class="kc-form-header-bar">
+                <#if auth?has_content && auth.showUsername() && !auth.showResetCredentials()>
+                    <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
+                        <img src="${url.resourcesPath}/img/back.png" alt="" class="kc-back-button-icon" />
+                        <span class="kc-reset-login-text">${msg("changeUserTitle")}</span>
+                    </a>
+                <#else>
+                    <span class="kc-header-spacer"></span>
+                </#if>
+                <#if realm.internationalizationEnabled && locale.supported?size gt 1>
+                    <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
+                        <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
+                            <div id="kc-locale-dropdown" class="menu-button-links ${properties.kcLocaleDropDownClass!}">
+                                <button tabindex="1" id="kc-current-locale-link" aria-label="${msg("languages")}" aria-haspopup="true" aria-expanded="false" aria-controls="language-switch1">${locale.current}</button>
+                                <ul role="menu" tabindex="-1" aria-labelledby="kc-current-locale-link" aria-activedescendant="" id="language-switch1" class="${properties.kcLocaleListClass!}">
+                                    <#assign i = 1>
+                                    <#list locale.supported as l>
+                                        <li class="${properties.kcLocaleListItemClass!}" role="none">
+                                            <a role="menuitem" id="language-${i}" class="${properties.kcLocaleItemClass!}" href="${l.url}">${l.label}</a>
+                                        </li>
+                                        <#assign i++>
+                                    </#list>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </#if>
+                </#if>
+            </div>
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
             <#if displayRequiredFields>
                 <div class="${properties.kcContentWrapperClass!}">
@@ -136,28 +149,12 @@
                     </div>
                     <div class="col-md-10">
                         <#nested "show-username">
-                        <div id="kc-username" class="${properties.kcFormGroupClass!}">
-                            <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                            <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
-                                <div class="kc-login-tooltip">
-                                    <i class="${properties.kcResetFlowIcon!}"></i>
-                                    <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                                </div>
-                            </a>
-                        </div>
+                        <h1 id="kc-page-title">${msg("userAttemptedLabel", auth.attemptedUsername)}</h1>
                     </div>
                 </div>
             <#else>
                 <#nested "show-username">
-                <div id="kc-username" class="${properties.kcFormGroupClass!}">
-                    <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                    <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
-                        <div class="kc-login-tooltip">
-                            <i class="${properties.kcResetFlowIcon!}"></i>
-                            <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                        </div>
-                    </a>
-                </div>
+                <h1 id="kc-page-title">${msg("userAttemptedLabel", auth.attemptedUsername)}</h1>
             </#if>
         </#if>
       </header>
