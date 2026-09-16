@@ -917,3 +917,68 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
 
     color: #F8F8F8;
 }
+
+/* ========================================
+   TELA DE CONFIRMAÇÃO DE LOGOUT
+   ======================================== */
+
+#kc-logout-confirm {
+    text-align: center;
+}
+
+#kc-logout-confirm .instruction {
+    width: 288px;
+    max-width: 100%;
+    margin: 32px auto 40px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #F8F8F8;
+    text-align: center;
+}
+
+#kc-logout {
+    display: block;
+    width: 208px;
+    height: 56px;
+    margin: 0 auto;
+    background-color: #EC7A29;
+    border: none;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F8F8F8;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#kc-logout:hover,
+#kc-logout:focus {
+    background-color: #B85A17;
+    color: #F8F8F8;
+}
+
+#kc-logout-confirm #kc-info-message {
+    width: 288px;
+    max-width: 100%;
+    margin: 32px auto 0;
+    text-align: center;
+}
+
+#kc-logout-confirm #kc-info-message p {
+    margin: 0;
+    padding: 0;
+}
+
+#kc-logout-confirm #kc-info-message a {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #F8F8F8;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+#kc-logout-confirm #kc-info-message a:hover {
+    text-decoration: underline;
+}
