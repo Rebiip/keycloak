@@ -13,9 +13,17 @@
             <meta name="${meta?split('==')[0]}" content="${meta?split('==')[1]}"/>
         </#list>
     </#if>
+    <#assign attemptedUser = ''>
+    <#if auth?has_content && auth.attemptedUsername?has_content>
+        <#assign attemptedUser = auth.attemptedUsername>
+    <#elseif login?has_content && (login.username!'')?has_content>
+        <#assign attemptedUser = login.username>
+    </#if>
+    <#assign isPasswordStep = (auth?has_content && auth.showUsername() && !auth.showResetCredentials()) || (usernameHidden?? && attemptedUser?has_content)>
+
     <meta name="heimdall-cursor-label" content="${msg('cursorFrameLabel')}" />
-    <#if auth?has_content && auth.showUsername() && !auth.showResetCredentials()>
-        <meta name="heimdall-attempted-username" content="${auth.attemptedUsername}" />
+    <#if isPasswordStep && attemptedUser?has_content>
+        <meta name="heimdall-attempted-username" content="${attemptedUser}" />
     </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
     <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
@@ -101,7 +109,7 @@
     <div class="${properties.kcFormCardClass!}">
         <header class="${properties.kcFormHeaderClass!}">
             <div class="kc-form-header-bar">
-                <#if auth?has_content && auth.showUsername() && !auth.showResetCredentials()>
+                <#if isPasswordStep>
                     <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
                         <img src="${url.resourcesPath}/img/back.png" alt="" class="kc-back-button-icon" />
                         <span class="kc-reset-login-text">${msg("changeUserTitle")}</span>
@@ -128,7 +136,7 @@
                     </div>
                 </#if>
             </div>
-        <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
+        <#if !isPasswordStep>
             <#if displayRequiredFields>
                 <div class="${properties.kcContentWrapperClass!}">
                     <div class="${properties.kcLabelWrapperClass!} subtitle">
@@ -149,12 +157,12 @@
                     </div>
                     <div class="col-md-10">
                         <#nested "show-username">
-                        <h1 id="kc-page-title">${msg("userAttemptedLabel", auth.attemptedUsername)}</h1>
+                        <h1 id="kc-page-title">${msg("userAttemptedLabel", attemptedUser)}</h1>
                     </div>
                 </div>
             <#else>
                 <#nested "show-username">
-                <h1 id="kc-page-title">${msg("userAttemptedLabel", auth.attemptedUsername)}</h1>
+                <h1 id="kc-page-title">${msg("userAttemptedLabel", attemptedUser)}</h1>
             </#if>
         </#if>
       </header>

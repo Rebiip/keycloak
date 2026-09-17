@@ -277,10 +277,16 @@ div.kc-logo-text {
     color: #F8F8F8;
 }
 
+header.login-pf-header {
+    margin-bottom: 0 !important;
+}
+
 #kc-page-title {
     width: 288px;
     max-width: 100%;
 
+    margin-top: 36px !important;
+    margin-bottom: 36px !important;
     margin-left: auto;
     margin-right: auto;
 
@@ -311,7 +317,7 @@ div.kc-logo-text {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 0 !important;
 }
 
 .kc-header-spacer {
@@ -337,11 +343,11 @@ div.kc-logo-text {
 }
 
 .kc-back-button-icon {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     display: block;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1) !important;
 }
 
 .kc-reset-login-text {
@@ -358,8 +364,15 @@ div.kc-logo-text {
    ======================================== */
 
 #kc-locale {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    width: auto !important;
     margin-left: auto !important;
     text-align: right !important;
+    display: block !important;
+    z-index: 9999;
 }
 
 #kc-locale,
@@ -436,10 +449,15 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
     margin-right: auto;
 }
 
-/* Distância entre título e Username */
+/* Distância entre título e campos do formulário */
 
 .login-pf-page .form-group:first-of-type {
-    margin-top: 40px;
+    margin-top: 0 !important;
+}
+
+#kc-content-wrapper,
+#kc-form-wrapper {
+    margin-top: 0 !important;
 }
 
 /* Distância entre Username e Password */
