@@ -60,12 +60,20 @@
         opacity: 1;
     }
 
-    :root:has(#password:focus) .heimdall-cursor-frame {
+    :root:has(#password:focus) .heimdall-cursor-frame,
+    :root:has(input[type="password"]:focus) .heimdall-cursor-frame {
         opacity: 0 !important;
     }
 
     .heimdall-cursor-frame.has-username {
         border-color: #24B26E;
+    }
+
+    .heimdall-cursor-frame.has-error,
+    :root:has(#input-error) .heimdall-cursor-frame,
+    :root:has(#input-error-username) .heimdall-cursor-frame,
+    :root:has([aria-invalid="true"]) .heimdall-cursor-frame {
+        border-color: #FF0000 !important;
     }
 
     .heimdall-cursor-frame-label {
@@ -91,6 +99,13 @@
 
     .heimdall-cursor-frame.has-username .heimdall-cursor-frame-label {
         background: #24B26E;
+    }
+
+    .heimdall-cursor-frame.has-error .heimdall-cursor-frame-label,
+    :root:has(#input-error) .heimdall-cursor-frame .heimdall-cursor-frame-label,
+    :root:has(#input-error-username) .heimdall-cursor-frame .heimdall-cursor-frame-label,
+    :root:has([aria-invalid="true"]) .heimdall-cursor-frame .heimdall-cursor-frame-label {
+        background: #FF0000 !important;
     }
 }
 
@@ -230,7 +245,7 @@ div.kc-logo-text {
 
     margin: 0;
 
-    padding: 80px 24px;
+    padding: 72px 24px;
 
     box-sizing: border-box;
 
@@ -288,8 +303,64 @@ div.kc-logo-text {
 }
 
 /* ========================================
+   BARRA SUPERIOR DO CABEÇALHO (VOLTAR & IDIOMA)
+   ======================================== */
+
+.kc-form-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.kc-header-spacer {
+    display: block;
+    visibility: hidden;
+}
+
+#reset-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#reset-login:hover {
+    text-decoration: none;
+}
+
+#reset-login:hover .kc-reset-login-text {
+    text-decoration: underline;
+}
+
+.kc-back-button-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.kc-reset-login-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    color: #F8F8F8 !important;
+}
+
+/* ========================================
    SELETOR DE IDIOMA
    ======================================== */
+
+#kc-locale {
+    margin-left: auto !important;
+    text-align: right !important;
+}
 
 #kc-locale,
 #kc-locale-wrapper,
@@ -300,9 +371,11 @@ div.kc-logo-text {
 
 #kc-locale-dropdown button,
 #kc-locale-dropdown a {
-    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.2;
+    letter-spacing: 0.03em;
 
     color: #F8F8F8 !important;
 }
@@ -476,6 +549,42 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
 
     outline: none;
     box-shadow: none;
+}
+
+/* ========================================
+   MENSAGENS DE ERRO
+   ======================================== */
+
+#input-error,
+#input-error-username,
+#input-error-password,
+.pf-c-form__helper-text.pf-m-error,
+.kc-feedback-text,
+.pf-m-danger,
+.alert-error {
+    color: #FF0000 !important;
+}
+
+#input-error,
+#input-error-username,
+#input-error-password,
+.pf-c-form__helper-text.pf-m-error {
+    display: block;
+    width: 288px;
+    max-width: 100%;
+    margin: 8px auto 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.login-pf-page .pf-c-form-control[aria-invalid="true"],
+.login-pf-page .pf-c-form-control[aria-invalid="true"]:focus {
+    border: 1px solid #F8F8F8 !important;
+    border-color: #F8F8F8 !important;
+    color: #F8F8F8 !important;
 }
 
 /* ========================================
@@ -808,3 +917,68 @@ button#kc-current-locale-link[aria-expanded="true"]::after {
 
     color: #F8F8F8;
 }
+
+/* ========================================
+   TELA DE CONFIRMAÇÃO DE LOGOUT
+   ======================================== */
+
+#kc-logout-confirm {
+    text-align: center;
+}
+
+#kc-logout-confirm .instruction {
+    width: 288px;
+    max-width: 100%;
+    margin: 32px auto 40px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #F8F8F8;
+    text-align: center;
+}
+
+#kc-logout {
+    display: block;
+    width: 208px;
+    height: 56px;
+    margin: 0 auto;
+    background-color: #EC7A29;
+    border: none;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F8F8F8;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#kc-logout:hover,
+#kc-logout:focus {
+    background-color: #B85A17;
+    color: #F8F8F8;
+}
+
+#kc-logout-confirm #kc-info-message {
+    width: 288px;
+    max-width: 100%;
+    margin: 32px auto 0;
+    text-align: center;
+}
+
+#kc-logout-confirm #kc-info-message p {
+    margin: 0;
+    padding: 0;
+}
+
+#kc-logout-confirm #kc-info-message a {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #F8F8F8;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+#kc-logout-confirm #kc-info-message a:hover {
+    text-decoration: underline;
+}
